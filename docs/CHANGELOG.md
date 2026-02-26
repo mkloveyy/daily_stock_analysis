@@ -7,6 +7,11 @@
 
 ## [Unreleased]
 
+### 修复（#patch）
+- 🐛 **首页历史记录列表滚动跳回顶部**（Issue #429）
+  - `fetchHistory` 引用不稳定导致加载更多后 useEffect 重新执行 reset 列表
+  - 改用 `useRef` 追踪易变状态，稳定 `fetchHistory` 引用；后台刷新合并新增项而非替换整个列表
+
 ### 新增（#minor）
 - 🚀 **桌面端 CI 自动发布到 GitHub Releases**
   - 新增 `.github/workflows/desktop-release.yml`
