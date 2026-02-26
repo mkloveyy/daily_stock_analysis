@@ -91,6 +91,8 @@ function renderFieldControl(
             <div className="flex items-center gap-2" key={`${item.key}-${index}`}>
               <input
                 type={isSecretVisible ? 'text' : 'password'}
+                readOnly
+                onFocus={(e) => { e.currentTarget.readOnly = false; }}
                 className={`${commonClass} flex-1`}
                 value={entry}
                 disabled={disabled || !schema?.isEditable}
@@ -142,6 +144,8 @@ function renderFieldControl(
       <div className="flex items-center gap-2">
         <input
           type={isSecretVisible ? 'text' : 'password'}
+          readOnly
+          onFocus={(e) => { e.currentTarget.readOnly = false; }}
           className={`${commonClass} flex-1`}
           value={value}
           disabled={disabled || !schema?.isEditable}
